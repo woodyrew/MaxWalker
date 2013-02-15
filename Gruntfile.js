@@ -17,18 +17,6 @@ module.exports = function (grunt) {
     grunt.initConfig({
         yeoman: yeomanConfig,
         watch: {
-            coffee: {
-                files: ['<%= yeoman.app %>/scripts/*.coffee'],
-                tasks: ['coffee:dist']
-            },
-            coffeeTest: {
-                files: ['test/spec/*.coffee'],
-                tasks: ['coffee:test']
-            },
-            compass: {
-                files: ['<%= yeoman.app %>/styles/*.{scss,sass}'],
-                tasks: ['compass']
-            },
             livereload: {
                 files: [
                     '<%= yeoman.app %>/*.html',
@@ -228,8 +216,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('server', [
         'clean:server',
-        'coffee:dist',
-        'compass:server',
         'livereload-start',
         'connect:livereload',
         'open',
@@ -238,8 +224,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', [
         'clean:server',
-        'coffee',
-        'compass',
         'connect:test',
         'mocha'
     ]);
@@ -248,8 +232,6 @@ module.exports = function (grunt) {
         'clean:dist',
         'jshint',
         'test',
-        'coffee',
-        'compass:dist',
         'useminPrepare',
         'requirejs',
         'imagemin',
