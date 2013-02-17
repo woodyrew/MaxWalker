@@ -17,18 +17,6 @@ module.exports = function (grunt) {
   grunt.initConfig({
     yeoman: yeomanConfig,
     watch: {
-      coffee: {
-        files: ['<%= yeoman.app %>/scripts/*.coffee'],
-        tasks: ['coffee:dist']
-      },
-      coffeeTest: {
-        files: ['test/spec/*.coffee'],
-        tasks: ['coffee:test']
-      },
-      compass: {
-        files: ['<%= yeoman.app %>/styles/*.{scss,sass}'],
-        tasks: ['compass']
-      },
       livereload: {
         files: [
           '<%= yeoman.app %>/*.html',
@@ -87,38 +75,6 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'testacular.conf.js',
         singleRun: true
-      }
-    },
-    coffee: {
-      dist: {
-        files: {
-          '.tmp/scripts/coffee.js': '<%= yeoman.app %>/scripts/*.coffee'
-        }
-      },
-      test: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/spec',
-          src: '*.coffee',
-          dest: 'test/spec'
-        }]
-      }
-    },
-    compass: {
-      options: {
-        sassDir: '<%= yeoman.app %>/styles',
-        cssDir: '.tmp/styles',
-        imagesDir: '<%= yeoman.app %>/images',
-        javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: 'app/components',
-        relativeAssets: true
-      },
-      dist: {},
-      server: {
-        options: {
-          debugInfo: true
-        }
       }
     },
     // not used since Uglify task does concat,
@@ -204,6 +160,14 @@ module.exports = function (grunt) {
         }]
       }
     },
+    recess: {
+      dist: {
+        options: {
+          compile: true
+        },
+        'dist/main.css': ['src/main.less']
+      }
+    },
     bower: {
       rjsConfig: 'app/scripts/main.js',
       indent: '    '
@@ -216,8 +180,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('server', [
     'clean:server',
-    'coffee:dist',
-    'compass:server',
     'livereload-start',
     'connect:livereload',
     'open',
@@ -226,8 +188,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
-    'coffee',
-    'compass',
     'connect:test',
     'testacular'
   ]);
@@ -236,8 +196,6 @@ module.exports = function (grunt) {
     'clean:dist',
     'jshint',
     'test',
-    'coffee',
-    'compass:dist',
     'useminPrepare',
     'imagemin',
     'cssmin',
