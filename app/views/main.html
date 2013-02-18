@@ -1,9 +1,43 @@
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+<div class="row">
+	<div class="span6 invisible">
+		<div class="row">
+			<div class="span4">
+				<p ng-repeat="task in tasks">
+					{{task.timeSoFar | date:'H:mm:ss'}} - {{task.description}}
+				</p>
+			</div>
+			<div class="span2">
+				<div class="btn-group">
+					<button class="btn" ng-click="timer.stop()" ng-show="timer.state()">Stop</button>
+					<button class="btn" ng-click="timer.start()" ng-hide="timer.state()">Start</button>
+					<button class="btn dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<a href="#">Mark as Complete</a>
+						<a href="#">Save task in todo</a>
+					<!-- dropdown menu links -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="span6">
+		<div class="hero-unit">
+			<h1 ng-repeat="task in tasks">
+				{{task.timeSoFar | date:'H:mm:ss'}}
+			</h1>
+			<div class="btn-group">
+				<button class="btn btn-large btn-danger" ng-click="timer.stop()" ng-show="timer.state()">Stop</button>
+				<button class="btn btn-large btn-success" ng-click="timer.start()" ng-hide="timer.state()">Start</button>
+				<button class="btn btn-large dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="#" ng-click="timer.reset()"><i class="icon-repeat"></i> Reset</a></li>
+				<!-- dropdown menu links -->
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
