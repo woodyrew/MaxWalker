@@ -1,17 +1,24 @@
 'use strict';
+console.log('main.js');
 
-angular.module('MaxWalkerApp')
-	.controller('MainCtrl', function ($scope, $timeout) {
+angular.module('maxWalkerApp', ['LocalStorageModule']) // 
+.controller('MainCtrl', [
+	'$scope',
+	'$timeout',
+	'localStorageService',
+	function ($scope, $timeout) { //, localStorageService
 		var onTimeout = function () {
 				$scope.tasks[$scope.activeTimerID].timeSoFar += 1e3; //milliseconds in a second
-
+				// localStorageService.add('storedTasks', 7000);
 				// Call yourself
 				mytimeout = $timeout(onTimeout, 1e3);
 			},
+			storedTasks = 80000, // localStorageService.get('storedTasks');
 			mytimeout;
 
-		$scope.tasks = [{id: 0, timeSoFar: 0, description: 'default'}];
+		$scope.tasks = [{id: 0, timeSoFar: storedTasks, description: 'default'}];
 		$scope.activeTimerID = 0;
+console.log($scope.tasks[$scope.activeTimerID].timeSoFar);
 
 		$scope.timer = {
 			state: function () {
@@ -27,11 +34,5 @@ angular.module('MaxWalkerApp')
 			}
 		};
 		$scope.timer.start(); // Initialse timer
-
-		
-		$scope.awesomeThings = [
-			'HTML5 Boilerplate',
-			'AngularJS',
-			'Testacular'
-		];
-	});
+	}
+]);

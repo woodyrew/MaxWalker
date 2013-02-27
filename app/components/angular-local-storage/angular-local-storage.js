@@ -1,10 +1,10 @@
 /* Start angularLocalStorage */
 
 var angularLocalStorage = angular.module('LocalStorageModule', []);
-
+console.log('localStorage');
 // You should set a prefix to avoid overwriting any local storage variables from the rest of your app
 // e.g. angularLocalStorage.constant('prefix', 'youAppName');
-angularLocalStorage.constant('prefix', 'ls');
+angularLocalStorage.constant('prefix', 'MaxWalkerApp');
 // Cookie options (usually in case of fallback)
 // expiry = Number of days before cookies expire // 0 = Does not expire
 // path = The web path the cookie represents
@@ -15,7 +15,7 @@ angularLocalStorage.service('localStorageService', [
   'prefix', 
   'cookie',
   function($rootScope, prefix, cookie) {
-
+console.log('localStorage Func');
   // If there is a prefix set in the config lets use that with an appended period for readability
   //var prefix = angularLocalStorage.constant;
   if (prefix.substr(-1)!=='.') {
@@ -121,7 +121,7 @@ angularLocalStorage.service('localStorageService', [
       $rootScope.$broadcast('LocalStorageModule.notification.error',e.Description);
       return false;
     }
-  }
+  };
 
   // Directly adds a value to cookies
   // Typically used as a fallback is local storage is not available in the browser
@@ -176,7 +176,7 @@ angularLocalStorage.service('localStorageService', [
 
   var removeFromCookies = function (key) {
     addToCookies(key,null);
-  }
+  };
 
   var clearAllFromCookies = function () {
     var thisCookie = null, thisKey = null;
@@ -190,7 +190,7 @@ angularLocalStorage.service('localStorageService', [
       key = thisCookie.substring(prefixLength,thisCookie.indexOf('='));
       removeFromCookies(key);
     }
-  }
+  };
 
 
   return {
