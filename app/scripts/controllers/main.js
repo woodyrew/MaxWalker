@@ -12,9 +12,12 @@ angular.module('MaxWalkerApp')
 							percentage = (timeSoFar / initialTime) * 100;
 						}
 						return percentage;
-					};
+					},
+					remaining = activeTimer.initialTime - activeTimer.timeSoFar;
 
-				activeTimer.timeRemaining = Math.abs(activeTimer.initialTime - activeTimer.timeSoFar); // Counts up after 0.
+				activeTimer.isCountdown = (activeTimer.initialTime > 0);
+				activeTimer.remainderClass = (activeTimer.initialTime > 0 && remaining < 0) ? 'text-error' : '';
+				activeTimer.timeRemaining = Math.abs(remaining); // Counts up after 0.
 				activeTimer.percentage = getPercentage(activeTimer.initialTime, activeTimer.timeSoFar);
 			},
 			onTimeout = function (taskID) {
@@ -38,10 +41,17 @@ angular.module('MaxWalkerApp')
 		$scope.timer = {
 			state: function (taskID) {
 				var stateTimeout = $scope.tasks[taskID].timeout;
-				console.log('state', taskID, typeof stateTimeout, stateTimeout);
+				
+				// console.log('state', taskID, typeof stateTimeout, stateTimeout);
 				return (typeof stateTimeout === 'object');
 			},
 			start: function (taskID) {
+				// Stop any other timers
+				$scope.tasks.forEach(function (element, index) {
+					$scope.timer.stop(element.id);
+				});
+
+				// Start timer
 				$scope.tasks[taskID].timeout = $timeout(function() {
 					onTimeout(taskID);
 				}, 1e3);
@@ -49,6 +59,7 @@ angular.module('MaxWalkerApp')
 			stop: function (taskID) {
 				var stopTimeout = $scope.tasks[taskID].timeout;
 				
+				// Cancel the timer
 				$timeout.cancel(stopTimeout);
 				delete $scope.tasks[taskID].timeout; // Unset for the state function to work
 			},

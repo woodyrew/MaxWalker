@@ -30,8 +30,8 @@
 			<h1>
 				{{task.timeSoFar | date:'H:mm:ss'}}
 			</h1>
-			<p>
-				Remaining: {{task.timeRemaining | date:'H:mm:ss'}}
+			<p ng-show="task.isCountdown">
+				Remaining: <span ng-class="task.remainderClass">{{task.timeRemaining | date:'H:mm:ss'}}</span>
 			</p>
 			<!--
 			• remove active when not running
