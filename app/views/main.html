@@ -23,18 +23,32 @@
 		</div>
 	</div> -->
 	<div class="span12">
-		<div class="hero-unit">
-			<h1 ng-repeat="task in tasks">
+		<div class="hero-unit" ng-repeat="task in tasks">
+			<p>
+				{{task.description}}
+			</p>
+			<h1>
 				{{task.timeSoFar | date:'H:mm:ss'}}
 			</h1>
+			<p>
+				Remaining: {{task.timeRemaining | date:'H:mm:ss'}}
+			</p>
+			<!--
+			• remove active when not running
+			• change to red when over the time limit
+			• get percentage for witdth
+			-->
+			<div class="" ng-class="timer.progressClass(task.id)">
+				<div class="bar" style="width: {{task.percentage}}%;"></div><!--  -->
+			</div>
 			<div id="timer-control" class="btn-group">
-				<button class="btn btn-large btn-danger" ng-click="timer.stop()" ng-show="timer.state()">Stop</button>
-				<button class="btn btn-large btn-success" ng-click="timer.start()" ng-hide="timer.state()">Start</button>
+				<button class="btn btn-large btn-danger" ng-click="timer.stop(task.id)" ng-show="timer.state(task.id)">Stop</button>
+				<button class="btn btn-large btn-success" ng-click="timer.start(task.id)" ng-hide="timer.state(task.id)">Start</button>
 				<button class="btn btn-large dropdown-toggle" data-toggle="dropdown">
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
-					<li><a href="#" ng-click="timer.reset()"><i class="icon-repeat"></i> Reset</a></li>
+					<li><button href="#" ng-click="timer.reset(task.id)"><i class="icon-repeat"></i> Reset</button></li>
 				<!-- dropdown menu links -->
 				</ul>
 			</div>
