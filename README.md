@@ -12,7 +12,9 @@ Links
 
 Compatability
 -------------
-[Chromium](http://www.chromium.org/Home), [Chrome](https://www.google.com/chrome) and [Andoid](http://www.android.com/) default browser.
+* [Chromium](http://www.chromium.org/Home)
+* [Chrome](https://www.google.com/chrome)
+* [Andoid](http://www.android.com/) default browser
 
 Not tested in other browsers.
 
