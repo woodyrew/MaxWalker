@@ -11,17 +11,23 @@ module.exports = function (grunt) {
   // configurable paths
   var yeomanConfig = {
     app: 'app',
-    dist: 'dist'
+    dist: 'gh-pages'
   };
 
   grunt.initConfig({
     yeoman: yeomanConfig,
     watch: {
+      less: {
+        files: [
+          'app/styles/**/*.less'
+        ],
+        tasks: ['recess:self', 'livereload']
+      },
       livereload: {
         files: [
-          '<%= yeoman.app %>/*.html',
-          '{.tmp,<%= yeoman.app %>}/styles/*.css',
-          '{.tmp,<%= yeoman.app %>}/scripts/*.js',
+          '<%= yeoman.app %>/**/*.html',
+          '{.tmp,<%= yeoman.app %>}/styles/**/*.css',
+          '{.tmp,<%= yeoman.app %>}/scripts/**/*.js',
           '<%= yeoman.app %>/images/*.{png,jpg,jpeg}'
         ],
         tasks: ['livereload']
@@ -155,7 +161,8 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>',
           src: [
             '*.{ico,txt}',
-            '.htaccess'
+            '.htaccess',
+            'views/*.html'
           ]
         }]
       }
@@ -163,9 +170,20 @@ module.exports = function (grunt) {
     recess: {
       dist: {
         options: {
+          compile: true,
+          compress: true
+        },
+        dest: '<%= yeoman.dist %>/styles/main.css',
+        src: ['<%= yeoman.app %>/styles/main.less'],
+        files: ['<%= yeoman.app %>/styles/main.less']
+      },
+      self: {
+        options: {
           compile: true
         },
-        'dist/main.css': ['src/main.less']
+        dest: '<%= yeoman.app %>/styles/main.css',
+        src: ['<%= yeoman.app %>/styles/main.less'],
+        files: ['<%= yeoman.app %>/styles/main.less']
       }
     },
     bower: {
@@ -195,13 +213,14 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'jshint',
-    'test',
+    // 'test',
     'useminPrepare',
     'imagemin',
-    'cssmin',
+    // 'cssmin',
+    'recess:dist',
     'htmlmin',
     'concat',
-    'uglify',
+    // 'uglify',
     'copy',
     'usemin'
   ]);
