@@ -30,14 +30,19 @@ angular.module('MaxWalkerApp')
 				$scope.tasks[taskID].timeout = $timeout(function() {
 					onTimeout(taskID);
 				}, 1e3);
+			},
+			updateTaskIDs = function () {
+				$scope.tasks.forEach(function (element, index) {
+					$scope.tasks[index].id = index;
+				});
 			};
 
 		$scope.tasks = [
-			{id: 0, initialTime: 1800e3, timeRemaining: 0, timeSoFar: 0, description: 'Main Task'},
-			{id: 1, initialTime: 0, timeRemaining: 0, timeSoFar: 0, description: 'Alternative'}
+			// {id: 0, initialTime: 1800e3, timeRemaining: 0, timeSoFar: 0, description: 'Main Task'},
+			{id: 1, initialTime: 0, timeRemaining: 0, timeSoFar: 0, description: 'Default Timer'}
 		];
-		$scope.activeTimerID = 0;
-
+		updateTaskIDs();
+		
 		$scope.timer = {
 			state: function (taskID) {
 				var stateTimeout = $scope.tasks[taskID].timeout;
@@ -66,6 +71,23 @@ angular.module('MaxWalkerApp')
 			reset: function (taskID) {
 				$scope.tasks[taskID].timeSoFar = 0;
 				updateProgress(taskID);
+			},
+			add: function () {
+				var initialTime = $scope.newTimer && $scope.newTimer.initialTime || 0,
+					description = $scope.newTimer && $scope.newTimer.description || 'Unknown Task';
+				$scope.tasks.push({
+					id: -1,
+					initialTime: initialTime * 60e3,
+					timeRemaining: 0,
+					timeSoFar: 0,
+					description: description
+				});
+				updateTaskIDs();
+			},
+			remove: function (taskID) {
+				$timeout.cancel($scope.tasks[taskID].timeout);
+				$scope.tasks.remove([taskID]);
+				updateTaskIDs();
 			},
 			progressClass: function (taskID) {
 				var task = $scope.tasks[taskID],
