@@ -22,7 +22,7 @@
 			</div>
 		</div>
 	</div> -->
-	<div class="span12">
+	<div class="span6">
 		<div class="hero-unit" ng-repeat="task in tasks">
 			<p>
 				{{task.description}}
@@ -49,9 +49,42 @@
 				</button>
 				<ul class="dropdown-menu">
 					<li><button class="btn btn-link" href="#" ng-click="timer.reset(task.id)"><i class="icon-repeat"></i> Reset</button></li>
+					<li><button class="btn btn-link" href="#" ng-click="timer.remove(task.id)"><i class="icon-remove"></i> Delete</button></li>
 				<!-- dropdown menu links -->
 				</ul>
 			</div>
 		</div>
+	</div>
+	<div class="span6 bump">
+		<form class="form-horizontal">
+			<h2>
+				New Task
+			</h2>
+			<div class="control-group">
+				<label class="control-label" for="inputDescription">Description</label>
+				<div class="controls">
+					<input type="text" id="inputDescription" ng-model="newTimer.description" placeholder="Task Name">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputDuration">Duration of Task (Optional)</label>
+				<div class="controls">
+					<input type="number" id="inputDuration" ng-model="newTimer.initialTime" min="0" placeholder="In Minutes">
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<!-- <label class="checkbox">
+						<input type="checkbox"> Simultaneous Running
+					</label> -->
+					<button class="btn btn-large" ng-click="timer.add()">Create</button>
+				</div>
+			</div>
+		</form>
+		<!-- <pre>newTimer:
+{{newTimer | json}}
+Tasks:
+{{tasks | json}}
+		</pre> -->
 	</div>
 </div>
