@@ -177,6 +177,11 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/styles/main.less'],
         files: ['<%= yeoman.app %>/styles/main.less']
       },
+      selfTest: {
+        dest: '<%= yeoman.app %>/styles/main.css',
+        src: ['<%= yeoman.app %>/styles/main.less'],
+        files: ['<%= yeoman.app %>/styles/main.less']
+      },
       self: {
         options: {
           compile: true

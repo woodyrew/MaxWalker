@@ -41,7 +41,7 @@
 			<div class="" ng-class="timer.progressClass(task.id)">
 				<div class="bar" style="width: {{task.percentage}}%;"></div><!--  -->
 			</div>
-			<div id="timer-control" class="btn-group">
+			<div class="btn-group timer-control">
 				<button class="btn btn-large btn-danger" ng-click="timer.stop(task.id)" ng-show="timer.state(task.id)">Stop</button>
 				<button class="btn btn-large btn-success" ng-click="timer.start(task.id)" ng-hide="timer.state(task.id)">Start</button>
 				<button class="btn btn-large dropdown-toggle" data-toggle="dropdown">

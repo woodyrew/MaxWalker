@@ -1,0 +1,37 @@
+/* Will be compiled down to a single stylesheet with your Less files */
+/*@import "bootstrap.less";*/ // All boostrap stylings
+
+@import "../components/bootstrap/less/responsive.less";
+
+// CSS Reset
+@import "../components/bootstrap/less/reset.less";
+
+// Grid system and page structure
+@import "../components/bootstrap/less/scaffolding.less";
+@import "../components/bootstrap/less/grid.less";
+@import "../components/bootstrap/less/layouts.less";
+
+// Base CSS
+@import "../components/bootstrap/less/type.less";
+// @import "../components/bootstrap/less/code.less";
+@import "../components/bootstrap/less/forms.less";
+// @import "../components/bootstrap/less/tables.less";
+
+// Components: common
+@import "../components/bootstrap/less/dropdowns.less";
+@import "../components/bootstrap/less/component-animations.less";
+
+// Components: Buttons & Alerts
+@import "../components/bootstrap/less/buttons.less";
+@import "../components/bootstrap/less/button-groups.less";
+
+// Components: Nav
+@import "../components/bootstrap/less/navs.less";
+@import "../components/bootstrap/less/navbar.less";
+
+// Components: Misc
+@import "../components/bootstrap/less/progress-bars.less";
+@import "../components/bootstrap/less/hero-unit.less";
+
+// Utility classes
+@import "../components/bootstrap/less/utilities.less"; // Has to be last to override when necessary
