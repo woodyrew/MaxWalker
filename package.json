@@ -1,9 +1,9 @@
 {
   "name": "MaxWalker",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "dependencies": {},
   "devDependencies": {
-    "grunt": "0.4.0rc7",
+    "grunt": "~0.4.1",
     "grunt-contrib-copy": "0.4.0rc7",
     "grunt-contrib-concat": "0.1.2rc6",
     "grunt-contrib-coffee": "0.4.0rc7",
