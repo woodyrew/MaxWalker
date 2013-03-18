@@ -33,23 +33,18 @@
 			<p ng-show="task.isCountdown">
 				Remaining: <span ng-class="task.remainderClass">{{task.timeRemaining | date:'H:mm:ss'}}</span>
 			</p>
-			<!--
-			• remove active when not running
-			• change to red when over the time limit
-			• get percentage for witdth
-			-->
 			<div class="" ng-class="timer.progressClass(task.id)">
 				<div class="bar" style="width: {{task.percentage}}%;"></div><!--  -->
 			</div>
-			<div id="timer-control" class="btn-group">
+			<div class="btn-group timer-control">
 				<button class="btn btn-large btn-danger" ng-click="timer.stop(task.id)" ng-show="timer.state(task.id)">Stop</button>
 				<button class="btn btn-large btn-success" ng-click="timer.start(task.id)" ng-hide="timer.state(task.id)">Start</button>
 				<button class="btn btn-large dropdown-toggle" data-toggle="dropdown">
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
-					<li><button class="btn btn-link" href="#" ng-click="timer.reset(task.id)"><i class="icon-repeat"></i> Reset</button></li>
-					<li><button class="btn btn-link" href="#" ng-click="timer.remove(task.id)"><i class="icon-remove"></i> Delete</button></li>
+					<li><button class="btn btn-link" href="#" ng-click="timer.reset(task.id)"><i class="icon-ccw"></i> Reset</button></li>
+					<li><button class="btn btn-link" href="#" ng-click="timer.remove(task.id)"><i class="icon-trash"></i> Delete</button></li>
 				<!-- dropdown menu links -->
 				</ul>
 			</div>

@@ -1,0 +1,216 @@
+{
+  "name": "icon",
+  "glyphs": [
+    {
+      "search": [
+        "semicolon"
+      ],
+      "code": 59,
+      "from": 59,
+      "uid": "snfl88dncpfb384hoi4rv4vqm08h8at8",
+      "css": "semicolon",
+      "orig_css": "semicolon",
+      "orig_code": 59,
+      "src": "modernpics"
+    },
+    {
+      "search": [
+        "clock",
+        "hourglass",
+        "busy",
+        "wait"
+      ],
+      "code": 8987,
+      "uid": "35ce53990ec0892d7dcea2d0159f8dca",
+      "css": "hourglass",
+      "orig_css": "hourglass",
+      "orig_code": 8987,
+      "src": "mfglabs",
+      "from": 8987
+    },
+    {
+      "search": [
+        "stopwatch",
+        "timer"
+      ],
+      "code": 9201,
+      "uid": "53c977df16b09e3f7700a27ec90c43dc",
+      "css": "stopwatch",
+      "orig_css": "stopwatch",
+      "orig_code": 9201,
+      "src": "mfglabs",
+      "from": 9201
+    },
+    {
+      "search": [
+        "clock",
+        "time"
+      ],
+      "code": 9202,
+      "uid": "981c9f3d44fd4fd6b37c0b5a981334ce",
+      "css": "clock-1",
+      "orig_css": "clock",
+      "orig_code": 9202,
+      "src": "mfglabs",
+      "from": 9202
+    },
+    {
+      "search": [
+        "down",
+        "arrow"
+      ],
+      "code": 9662,
+      "from": 9662,
+      "uid": "2d6150442079cbda7df64522dc24f482",
+      "css": "down-dir",
+      "orig_css": "down-dir",
+      "orig_code": 9662,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "flash",
+        "bolt"
+      ],
+      "code": 9889,
+      "from": 9889,
+      "uid": "3212f42c65d41ed91cb435d0490e29ed",
+      "css": "flash",
+      "orig_css": "flash",
+      "orig_code": 9889,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "close",
+        "cancel",
+        "reject"
+      ],
+      "code": 10005,
+      "from": 10005,
+      "uid": "5211af474d3a9848f67f945e2ccaf143",
+      "css": "cancel",
+      "orig_css": "cancel",
+      "orig_code": 10005,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "plus"
+      ],
+      "code": 10133,
+      "from": 10133,
+      "uid": "4ba33d2607902cf690dd45df09774cb0",
+      "css": "plus-circle",
+      "orig_css": "plus-circle",
+      "orig_code": 10133,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "reload",
+        "undo",
+        "arrow"
+      ],
+      "code": 10226,
+      "from": 10226,
+      "uid": "f9c3205df26e7778abac86183aefdc99",
+      "css": "ccw",
+      "orig_css": "ccw",
+      "orig_code": 10226,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "trash",
+        "delete"
+      ],
+      "code": 59177,
+      "from": 59177,
+      "uid": "f48ae54adfb27d8ada53d0fd9e34ee10",
+      "css": "trash",
+      "orig_css": "trash",
+      "orig_code": 59177,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "zoom",
+        "scale",
+        "in"
+      ],
+      "code": 59216,
+      "from": 59216,
+      "uid": "0b2b66e526028a6972d51a6f10281b4b",
+      "css": "zoom-in",
+      "orig_css": "zoom-in",
+      "orig_code": 59216,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "zoom",
+        "scale",
+        "out"
+      ],
+      "code": 59217,
+      "from": 59217,
+      "uid": "d25d10efa900f529ad1d275657cfd30e",
+      "css": "zoom-out",
+      "orig_css": "zoom-out",
+      "orig_code": 59217,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "arrow",
+        "left"
+      ],
+      "code": 59229,
+      "from": 59229,
+      "uid": "d870630ff8f81e6de3958ecaeac532f2",
+      "css": "left-open",
+      "orig_css": "left-open",
+      "orig_code": 59229,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "arrow",
+        "right"
+      ],
+      "code": 59230,
+      "from": 59230,
+      "uid": "399ef63b1e23ab1b761dfbb5591fa4da",
+      "css": "right-open",
+      "orig_css": "right-open",
+      "orig_code": 59230,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "github"
+      ],
+      "code": 61595,
+      "uid": "0f6a2573a7b6df911ed199bb63717e27",
+      "css": "github-circled",
+      "orig_css": "github-circled",
+      "orig_code": 61595,
+      "src": "fontawesome",
+      "from": 61595
+    },
+    {
+      "search": [
+        "clock",
+        "time"
+      ],
+      "code": 128340,
+      "from": 128340,
+      "uid": "598a5f2bcf3521d1615de8e1881ccd17",
+      "css": "clock",
+      "orig_css": "clock",
+      "orig_code": 128340,
+      "src": "fontawesome"
+    }
+  ]
+}

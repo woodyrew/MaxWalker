@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+
+.icon-semicolon:before { content: '\3b'; } /* ';' */
+.icon-hourglass:before { content: '\231b'; } /* '⌛' */
+.icon-stopwatch:before { content: '\23f1'; } /* '⏱' */
+.icon-clock-1:before { content: '\23f2'; } /* '⏲' */
+.icon-down-dir:before { content: '\25be'; } /* '▾' */
+.icon-flash:before { content: '\26a1'; } /* '⚡' */
+.icon-cancel:before { content: '\2715'; } /* '✕' */
+.icon-plus-circle:before { content: '\2795'; } /* '➕' */
+.icon-ccw:before { content: '\27f2'; } /* '⟲' */
+.icon-trash:before { content: '\e729'; } /* '' */
+.icon-zoom-in:before { content: '\e750'; } /* '' */
+.icon-zoom-out:before { content: '\e751'; } /* '' */
+.icon-left-open:before { content: '\e75d'; } /* '' */
+.icon-right-open:before { content: '\e75e'; } /* '' */
+.icon-github-circled:before { content: '\f09b'; } /* '' */
+.icon-clock:before { content: '🕔'; } /* '\1f554' */

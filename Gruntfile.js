@@ -162,7 +162,10 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,txt}',
             '.htaccess',
-            'views/*.html'
+            'views/*.html',
+            'styles/icon.css',
+            'styles/font/*',
+            'apple*'
           ]
         }]
       }

@@ -54,6 +54,7 @@ angular.module('MaxWalkerApp')
 				var stateTimeout = $scope.tasks[taskID].timeout;
 				
 				// console.log('state', taskID, typeof stateTimeout, stateTimeout);
+				// returns whether a timer is active
 				return (typeof stateTimeout === 'object');
 			},
 			start: function (taskID) {
@@ -104,7 +105,7 @@ angular.module('MaxWalkerApp')
 				}
 				if (task.initialTime > 0) {
 					if (task.initialTime > task.timeSoFar) {
-						if (task.percentage < 90) {
+						if (task.percentage < 80) {
 							classes.push('progress-success');
 						}
 						else {

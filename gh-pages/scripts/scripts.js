@@ -22,7 +22,7 @@ angular.module('MaxWalkerApp', [])
 'use strict';
 
 angular.module('MaxWalkerApp')
-	.controller('MainCtrl', function ($scope, $timeout) {
+	.controller('MainCtrl', function ($rootScope, $scope, $timeout, $filter) {
 		var updateProgress = function (taskID) {
 				var activeTimer = $scope.tasks[taskID],
 					getPercentage = function (initialTime, timeSoFar) {
@@ -47,6 +47,8 @@ angular.module('MaxWalkerApp')
 				activeTimer.timeSoFar += 1e3; //milliseconds in a second
 				updateProgress(taskID);
 
+				$rootScope.title = $filter('date')(activeTimer.timeSoFar, 'H:mm:ss') + ' • ' + activeTimer.description;
+
 				// Call yourself
 				$scope.tasks[taskID].timeout = $timeout(function() {
 					onTimeout(taskID);
@@ -58,6 +60,10 @@ angular.module('MaxWalkerApp')
 				});
 			};
 
+		/**
+		 * Default scopes:
+		 */
+		$rootScope.title = '';
 		$scope.tasks = [
 			// {id: 0, initialTime: 1800e3, timeRemaining: 0, timeSoFar: 0, description: 'Main Task'},
 			{id: 1, initialTime: 0, timeRemaining: 0, timeSoFar: 0, description: 'Default Timer'}
@@ -69,6 +75,7 @@ angular.module('MaxWalkerApp')
 				var stateTimeout = $scope.tasks[taskID].timeout;
 				
 				// console.log('state', taskID, typeof stateTimeout, stateTimeout);
+				// returns whether a timer is active
 				return (typeof stateTimeout === 'object');
 			},
 			start: function (taskID) {
@@ -119,7 +126,7 @@ angular.module('MaxWalkerApp')
 				}
 				if (task.initialTime > 0) {
 					if (task.initialTime > task.timeSoFar) {
-						if (task.percentage < 90) {
+						if (task.percentage < 80) {
 							classes.push('progress-success');
 						}
 						else {
